@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('./assets/fonts/BarlowCondensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@theme {
+  --font-barlow: "Barlow Condensed", "sans-serif";
+}
+
+body {
+  font-family: var(--font-barlow);
+  overflow-x: hidden;
+  color: #D0D6F9;
+}
