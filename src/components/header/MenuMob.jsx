@@ -1,64 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-
-const StyledMenu = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  gap: 2rem;
-  background: rgba(11, 13, 23, 0.15);
-  backdrop-filter: blur(40px);
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
-  height: 100vh;
-  width: 75%;
-  padding: 8.4rem 2rem 0 2rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transition: transform 0.3s ease-in-out;
-
-  .link {
-    position: relative;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: .3rem;
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s linear;
-
-    &::before {
-      content: '';
-      position: absolute;
-      right: -2rem;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.5);
-      transform: scaleY(0);
-      transform-origin: center right;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    &:hover::before {
-      transform: scaleY(1);
-    }
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.5);
-    }
-  }
-`
 
 const MenuMob = ({ open, setOpen }) => {
   return (
-    <StyledMenu open={open}>
-      <Link className='link' to='/' onClick={() => setOpen(false)}>00&nbsp;Home</Link>
-      <Link className='link' to='/destination' onClick={() => setOpen(false)}>01&nbsp;Destination</Link>
-      <Link className='link' to='/crew' onClick={() => setOpen(false)}>02&nbsp;Crew</Link>
-      <Link className='link' to='/technology' onClick={() => setOpen(false)}>03&nbsp;Technology</Link>
-    </StyledMenu>
+    <nav
+      className={`fixed top-0 right-0 h-screen w-[75%] bg-white/10 backdrop-blur-lg px-8 pt-32 flex flex-col gap-8 transition-transform duration-300 ease-in-out z-50 ${
+        open ? 'translate-x-0' : 'translate-x-full'
+      }`}
+    >
+      <Link
+        to='/'
+        onClick={() => setOpen(false)}
+        className='relative text-white text-sm uppercase font-bold tracking-[.3rem] hover:text-white/50 transition-colors duration-300'
+      >
+        00&nbsp;Home
+        <span className='absolute top-0 right-[-2rem] h-full w-1 bg-white/50 scale-y-0 origin-right transition-transform duration-500 hover:scale-y-100'></span>
+      </Link>
+      <Link
+        to='/destination'
+        onClick={() => setOpen(false)}
+        className='relative text-white text-sm uppercase font-bold tracking-[.3rem] hover:text-white/50 transition-colors duration-300'
+      >
+        01&nbsp;Destination
+        <span className='absolute top-0 right-[-2rem] h-full w-1 bg-white/50 scale-y-0 origin-right transition-transform duration-500 hover:scale-y-100'></span>
+      </Link>
+      <Link
+        to='/crew'
+        onClick={() => setOpen(false)}
+        className='relative text-white text-sm uppercase font-bold tracking-[.3rem] hover:text-white/50 transition-colors duration-300'
+      >
+        02&nbsp;Crew
+        <span className='absolute top-0 right-[-2rem] h-full w-1 bg-white/50 scale-y-0 origin-right transition-transform duration-500 hover:scale-y-100'></span>
+      </Link>
+      <Link
+        to='/technology'
+        onClick={() => setOpen(false)}
+        className='relative text-white text-sm uppercase font-bold tracking-[.3rem] hover:text-white/50 transition-colors duration-300'
+      >
+        03&nbsp;Technology
+        <span className='absolute top-0 right-[-2rem] h-full w-1 bg-white/50 scale-y-0 origin-right transition-transform duration-500 hover:scale-y-100'></span>
+      </Link>
+    </nav>
   )
 }
 

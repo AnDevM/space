@@ -5,11 +5,13 @@ import VerticalLine from './components/VerticalLine'
 function App () {
   return (
     <>
-      <Header />
-      <VerticalLine />
-      <main>
-        <Outlet />
-      </main>
+      <div className='overflow-x-hidden'>
+        <Header />
+        <VerticalLine />
+        <main>
+          <Outlet />
+        </main>
+      </div>
     </>
   )
 }
